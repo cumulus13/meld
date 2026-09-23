@@ -471,6 +471,7 @@ class FileDiff(Gtk.Box, MeldDoc):
                 "overwrite",
                 GObject.BindingFlags.BIDIRECTIONAL,
             )
+            t.connect("key-press-event", self.custom_toggle_focus)
 
         for gutter in self.actiongutter:
             self.bind_property("action_mode", gutter, "action_mode")
@@ -2808,5 +2809,16 @@ class FileDiff(Gtk.Box, MeldDoc):
     def action_zoom_reset(self, *args):
         update_font_zoom(None)
 
+    def custom_toggle_focus(self, widget, event):
+        # Check if F6 is pressed
+        if event.keyval == Gdk.KEY_F6:
+            try:
+                idx = self.textview.index(widget)
+                next_idx = (idx + 1) % self.num_panes
+                self.textview[next_idx].grab_focus()
+                return True # Event handled, stops propagation
+            except ValueError:
+                pass
+        return False
 
 FileDiff.set_css_name("meld-file-diff")
