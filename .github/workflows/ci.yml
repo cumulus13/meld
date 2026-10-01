@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: dnf install -y git gtk4 gtksourceview5 libadwaita python3-cairo python3-gobject-base uv xorg-x11-server-Xvfb
       - uses: actions/checkout@v4
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: |
             ~/.cache/pre-commit
@@ -38,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: dnf install -y git gtk4 gtksourceview5 libadwaita python3-cairo python3-gobject-base uv xorg-x11-server-Xvfb
       - uses: actions/checkout@v4
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: ~/.cache/uv
           key: pytest-${{ hashFiles('pyproject.toml') }}
