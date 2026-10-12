@@ -140,7 +140,7 @@ jobs:
           test -x "$nsis" || { echo "NSIS not found at $nsis" >&2; exit 1; }
           "$nsis" -VERSION
           ls "$(dirname "$nsis")/Plugins"
-          "$nsis" ./meld.nsis
+          "$nsis" /X"AddPluginDir 'C:\Program Files (x86)\NSIS\Plugins\x86-unicode'" ./meld.nsis
           mv meld-*.exe "$(cygpath -u "$GITHUB_WORKSPACE")/"
       - uses: actions/upload-artifact@v4
         with:
