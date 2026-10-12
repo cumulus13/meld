@@ -65,7 +65,7 @@ jobs:
           flatpak build-bundle repo meld-dev.flatpak
           --runtime-repo=https://nightly.gnome.org/gnome-nightly.flatpakrepo
           org.gnome.Meld.Devel
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: flatpak-bundle
           path: meld-dev.flatpak
@@ -142,7 +142,7 @@ jobs:
           ls "$(dirname "$nsis")/Plugins"
           "$nsis" ./meld.nsis
           mv meld-*.exe "$(cygpath -u "$GITHUB_WORKSPACE")/"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: windows-installer
           path: meld-*.exe
