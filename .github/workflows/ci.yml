@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Install dependencies
         run: dnf install -y git gtk4 gtksourceview5 libadwaita python3-cairo python3-gobject-base uv xorg-x11-server-Xvfb
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/cache@v4
         with:
           path: |
@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Install dependencies
         run: dnf install -y git gtk4 gtksourceview5 libadwaita python3-cairo python3-gobject-base uv xorg-x11-server-Xvfb
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/cache@v4
         with:
           path: ~/.cache/uv
@@ -55,7 +55,7 @@ jobs:
       image: quay.io/gnome_infrastructure/gnome-runtime-images:gnome-master
       options: --privileged
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build
         run: >-
           flatpak-builder --user --disable-rofiles-fuse --force-clean
@@ -78,7 +78,7 @@ jobs:
       run:
         shell: msys2 {0}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       # The MSYS2 nsis package cannot find its nsDialogs plugin ("Plugin not
       # found, cannot call nsDialogs::Create", empty plugin directory list);
       # use the official NSIS build that meld.nsis was written against.
