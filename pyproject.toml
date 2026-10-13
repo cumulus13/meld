@@ -33,7 +33,7 @@ keywords = [
     "diff",
     "merge",
 ]
-version = "3.99.10"
+version = "3.99.11"
 
 [project.license]
 file = "COPYING"
