@@ -9,9 +9,10 @@ from pathlib import Path
 __package__ = "meld"
 __version__ = "@version@"
 
-# Unconfigured (running from source): the placeholder is never substituted
-# if __version__.startswith("@"):
-#     __version__ = "0.0.0+dev"
+# Running from a source checkout uses this file as-is, so the placeholder above
+# is never substituted by meson.
+if __version__.startswith("@"):
+    __version__ = "0.0.0+dev"
 
 APPLICATION_NAME = 'Meld'
 APPLICATION_ID = 'org.gnome.Meld'

@@ -94,6 +94,7 @@ if not is_wheel
     'pkgdatadir': prefix / pkgdatadir,
     'configured': 'True',
     'is_wheel': 'False',
+    'version': meson.project_version(),
     'is_devel': (is_devel ? 'True' : 'False'),
   }
 else
@@ -101,6 +102,7 @@ else
     'application_id': application_id,
     'configured': 'False',
     'is_wheel': 'True',
+    'version': meson.project_version(),
     'is_devel': (is_devel ? 'True' : 'False'),
   }
 endif
